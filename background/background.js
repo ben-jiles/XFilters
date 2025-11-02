@@ -1,1 +1,3 @@
-chrome.runtime.onInstalled.addListener(()=>{console.log('XFilters installed');});
+chrome.runtime.onInstalled.addListener(() => {
+  console.log('XFilters installed');
+});

@@ -1,1 +1,86 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>XFilters</title><link rel="stylesheet" href="popup.css"></head><body><div class="container"><h1>XFilters</h1><label class="switch"><input type="checkbox" id="enable"><span class="slider"></span></label><span id="status">Disabled</span><div class="field"><label for="regex">Regex pattern</label><input type="text" id="regex" placeholder="e.g. \\b(crypto|bitcoin)\\b"><small>Case-insensitive. Empty = no filtering.</small></div><button id="save">Save & Apply</button><p id="msg" class="msg"></p></div><script src="popup.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XFilters</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>XFilters</h1>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button id="add-rule">Add Rule</button>
+      <button id="export">Export</button>
+      <input type="file" id="import-file" accept=".json" style="display:none">
+      <button id="import">Import</button>
+      <button id="load-profanity">Load Profanity Preset</button>
+    </div>
+
+    <!-- Rules List -->
+    <div id="rules-list"></div>
+    <div id="empty-state" class="empty">
+      No rules yet. Click "Add Rule" to start.
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3 id="modal-title">Add Rule</h3>
+
+      <label>
+        Rule Title
+        <input type="text" id="modal-title-input" placeholder="e.g. Crypto Spam" maxlength="30">
+        <small>Optional. Leave blank for auto-numbering.</small>
+      </label>
+
+      <label>
+        Text Pattern
+        <input type="text" id="modal-regex" placeholder="text">
+        <small>Case-insensitive. Use regex for advanced filtering.</small>
+      </label>
+
+      <label>
+        <strong>Quiet Hours</strong> (optional)
+        <input type="datetime-local" id="modal-time-start">
+        <small>Only apply during this time</small>
+      </label>
+
+      <div style="margin:8px 0 16px; text-align:center; color:#666; font-size:0.9rem;">
+        to
+      </div>
+
+      <label>
+        <input type="datetime-local" id="modal-time-end">
+        <small>Leave blank = always apply</small>
+      </label>
+
+      <label>
+        Filter by User (optional)
+        <input type="text" id="modal-user" placeholder="@elonmusk">
+        <small>Only from this user. Leave blank = any user.</small>
+      </label>
+
+      <label>
+        Action
+        <select id="modal-action">
+          <option value="hide">Hide post</option>
+          <option value="blur">Blur words</option>
+          <option value="highlight">Highlight post</option>
+        </select>
+        <small>Choose how to handle matches.</small>
+      </label>
+
+      <div class="modal-actions">
+        <button id="modal-save">Save</button>
+        <button id="modal-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

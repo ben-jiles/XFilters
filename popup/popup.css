@@ -1,1 +1,343 @@
-body{font-family:system-ui,sans-serif;margin:0;width:300px}.container{padding:16px}h1{margin:0 0 12px;font-size:1.2rem;text-align:center}.switch{position:relative;display:inline-block;width:44px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#ccc;border-radius:3410px;transition:.3s}.slider:before{position:absolute;content:"";height:20px;width:20px;left:2px;bottom:2px;background:#fff;border-radius:50%;transition:.3s}input:checked+.slider{background:#2196F3}input:checked+.slider:before{transform:translateX(20px)}#status{margin-left:8px;vertical-align:middle}.field{margin-top:16px}label{display:block;font-weight:600;margin-bottom:4px}input[type=text]{width:100%;padding:6px;box-sizing:border-box}small{display:block;color:#666;font-size:.8rem;margin-top:4px}button{margin-top:12px;width:100%;padding:8px;background:#2196F3;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer}button:hover{background:#1976D2}.msg{margin-top:8px;color:#d32f2f;font-size:.85rem;text-align:center}
+/* ============================================================= */
+/* XFilters – Popup Styles (Light Mode)                         */
+/* Width: 340px | Modern, Clean, Professional                   */
+/* ============================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  width: 340px;
+  background: #f9f9f9;
+  color: #1a1a1a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.container {
+  padding: 16px;
+  min-height: 240px;
+}
+
+/* ============================================================= */
+/* HEADER                                                       */
+/* ============================================================= */
+h1 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #1DA1F2;
+  font-weight: 700;
+}
+
+/* ============================================================= */
+/* TOOLBAR                                                      */
+/* ============================================================= */
+.toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  min-width: 70px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#add-rule {
+  background: #1DA1F2;
+  color: white;
+}
+
+#export, #import {
+  background: #eee;
+  color: #333;
+}
+
+#load-profanity {
+  background: #d32f2f;
+  color: white;
+  font-size: 0.8rem;
+}
+
+#load-profanity:hover {
+  background: #b71c1c;
+}
+
+/* ============================================================= */
+/* RULES LIST                                                   */
+/* ============================================================= */
+#rules-list {
+  margin-top: 8px;
+}
+
+.rule-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rule-item:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  border-color: #bbb;
+}
+
+/* Header: checkbox + title */
+.rule-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1a0dab;
+  font-size: 1rem;
+}
+
+.rule-header input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Regex */
+.rule-regex {
+  font-family: 'Courier New', monospace;
+  color: #d32f2f;
+  word-break: break-all;
+  font-size: 0.95em;
+  line-height: 1.4;
+  padding-right: 70px;
+}
+
+/* Time / User */
+.rule-time,
+.rule-user {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+.rule-user {
+  color: #1DA1F2;
+  font-weight: 600;
+}
+
+/* Action Badge */
+.rule-action {
+  font-size: 0.75rem;
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* Action Buttons (Edit/Delete) */
+.rule-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rule-item:hover .rule-actions {
+  opacity: 1;
+}
+
+.rule-actions button {
+  background: #f1f3f4;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.rule-actions button:hover {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+/* Empty State */
+#empty-state.empty {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================================= */
+/* MODAL                                                        */
+/* ============================================================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 320px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+
+.modal-content h3 {
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #1DA1F2;
+  font-weight: 700;
+}
+
+/* Modal Fields */
+.modal-content label {
+  display: block;
+  margin: 18px 0 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.modal-content label small {
+  display: block;
+  margin-top: 4px;
+  font-weight: normal;
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.modal-content input[type=text],
+.modal-content input[type=datetime-local],
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 0.95rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-color: #1DA1F2;
+  box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.15);
+}
+
+/* "to" connector */
+.modal-content > div[style*="text-align: center"] {
+  margin: 8px 0 16px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Modal Buttons */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#modal-save {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+#modal-cancel {
+  background: #eee;
+  color: #333;
+}
+
+#modal-save:hover { background: #0d8bd9; }
+#modal-cancel:hover { background: #ddd; }
+
+/* ============================================================= */
+/* DARK MODE (Optional – auto-detect)                           */
+/* ============================================================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  .container, .modal-content {
+    background: #1e1e1e;
+  }
+
+  .rule-item {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .rule-item:hover {
+    border-color: #666;
+  }
+
+  input, select, button {
+    background: #333;
+    color: #fff;
+    border-color: #555;
+  }
+
+  .rule-regex { color: #ff6b6b; }
+  .rule-action { background: #440000; color: #ff8a8a; }
+}
