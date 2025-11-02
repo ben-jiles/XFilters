@@ -70,7 +70,10 @@ Click "Load Profanity" → Instant 10-word filter (blur by default)
 ## License
 MIT License – Free to use, modify, and distribute.
 
-### Author
+## Privacy Policy
+I don't collect any of your data. I don't want it.
+
+## Author
 Ben Jiles - @BenSJiles
 
 
