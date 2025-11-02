@@ -39,7 +39,7 @@
 
 1. **Download** the repo:  
    ```bash
-   git clone https://github.com/yourusername/XFilters.git
+   git clone https://github.com/ben-jiles/XFilters.git
 2. Open Chrome → chrome://extensions
 3. Enable Developer mode (top right)
 4. Click "Load unpacked" → Select the XFilters folder
