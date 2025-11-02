@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "XFilters",
-  "description": "Powerful X filtering: hide, blur, or highlight posts using regex, user, time, and action. Block profanity, spam, or politics with one click. Works in timeline and single tweets — no refresh needed.",
-  "author": "Ben Jiles"
+  "description": "Powerful X filtering: hide, blur, or highlight posts using regex, user, and time parameters.",
+  "author": "Ben Jiles",
   "version": "1.0.0",
   "icons": {
     "16": "icons/icon16.png",
