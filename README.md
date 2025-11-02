@@ -1,6 +1,6 @@
 # XFilters
 ![XFilters](https://img.shields.io/badge/XFilters-v1.0-blue?logo=googlechrome)
-![License](https://img.shields.io/github/license/ben-jiles/XFilters)
+![License](https://img.shields.io/github/license/ben-jiles/XFilters?color=blue)
 ![Chrome](https://img.shields.io/badge/Chrome-Extension-green)
 
 > **Powerful, real-time tweet filtering for X.com**  
