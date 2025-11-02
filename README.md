@@ -67,21 +67,6 @@ Click "Load Profanity" → Instant 10-word filter (blur by default)
 - Regex (gi flags)
 
 
-## Folder Structure
-textXFilters/
-├── content/
-│   ├── content.js      → Filtering engine
-│   └── content.css     → Blur & highlight styles
-├── popup/
-│   ├── popup.html      → UI
-│   ├── popup.js        → Logic
-│   └── popup.css       → Styling
-├── screenshots/        → Demo images
-├── icon48.png          → 48x48 icon
-├── manifest.json       → Extension config
-└── README.md
-
-
 ## License
 MIT License – Free to use, modify, and distribute.
 
